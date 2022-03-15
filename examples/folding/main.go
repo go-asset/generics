@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/yitsushi/go1-18-experiments/internal/filter"
-	"github.com/yitsushi/go1-18-experiments/pkg/data"
+	"github.com/yitsushi/go-generics/internal/filter"
+	"github.com/yitsushi/go-generics/pkg/data"
 )
 
 func main() {

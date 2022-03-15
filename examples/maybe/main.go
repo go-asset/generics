@@ -1,10 +1,11 @@
 package main
 
 import (
-	"constraints"
 	"fmt"
 
-	"github.com/yitsushi/go1-18-experiments/pkg/data"
+	"golang.org/x/exp/constraints"
+
+	"github.com/yitsushi/go-generics/pkg/data"
 )
 
 func add[T constraints.Ordered](c data.Maybe[T], value data.Maybe[T]) data.Maybe[T] {

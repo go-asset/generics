@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/yitsushi/go1-18-experiments/pkg/data"
+	"github.com/yitsushi/go-generics/pkg/data"
 )
 
 type Filter interface {
