@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/exp/constraints"
 
-	"github.com/yitsushi/go-generics/pkg/data"
+	"github.com/go-asset/generics/pkg/data"
 )
 
 func add[L any, R constraints.Ordered](c data.Maybe[R], value data.Either[L, R]) data.Maybe[R] {

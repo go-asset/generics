@@ -1,4 +1,4 @@
-module github.com/yitsushi/go-generics
+module github.com/go-asset/generics
 
 go 1.18
 

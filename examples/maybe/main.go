@@ -5,7 +5,7 @@ import (
 
 	"golang.org/x/exp/constraints"
 
-	"github.com/yitsushi/go-generics/pkg/data"
+	"github.com/go-asset/generics/pkg/data"
 )
 
 func add[T constraints.Ordered](c data.Maybe[T], value data.Maybe[T]) data.Maybe[T] {

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/yitsushi/go-generics/pkg/data"
+import "github.com/go-asset/generics/pkg/data"
 
 func readFromUser() chan data.Maybe[int] {
 	ch := make(chan data.Maybe[int])
