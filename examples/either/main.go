@@ -6,10 +6,12 @@ import (
 
 	"golang.org/x/exp/constraints"
 
-	"github.com/go-asset/generics/pkg/data"
+	"github.com/go-asset/generics/pkg/data/either"
+	"github.com/go-asset/generics/pkg/data/list"
+	"github.com/go-asset/generics/pkg/data/maybe"
 )
 
-func add[L any, R constraints.Ordered](c data.Maybe[R], value data.Either[L, R]) data.Maybe[R] {
+func add[L any, R constraints.Ordered](c maybe.Maybe[R], value either.Either[L, R]) maybe.Maybe[R] {
 	if !value.IsRight() {
 		log.Printf("Skip: %v\n", value.Left())
 
@@ -17,15 +19,15 @@ func add[L any, R constraints.Ordered](c data.Maybe[R], value data.Either[L, R])
 	}
 
 	if c.IsNothing() {
-		return data.Just(value.Right())
+		return maybe.Just(value.Right())
 	}
 
-	return data.Just(c.Value() + value.Right())
+	return maybe.Just(c.Value() + value.Right())
 }
 
 func main() {
-	result := data.FoldlIter(
-		data.Nothing[int](),
+	result := list.FoldlIter(
+		maybe.Nothing[int](),
 		readFromUser(),
 		add[string, int],
 	)

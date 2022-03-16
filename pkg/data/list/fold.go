@@ -1,4 +1,4 @@
-package data
+package list
 
 func FoldlIter[T any, R any](init R, list <-chan T, fold func(carry R, next T) R) R {
 	for value := range list {

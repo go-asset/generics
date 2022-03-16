@@ -1,15 +1,15 @@
 package main
 
-import "github.com/go-asset/generics/pkg/data"
+import "github.com/go-asset/generics/pkg/data/either"
 
-func readFromUser() chan data.Either[string, int] {
-	ch := make(chan data.Either[string, int])
+func readFromUser() chan either.Either[string, int] {
+	ch := make(chan either.Either[string, int])
 
-	myList := []data.Either[string, int]{
-		data.Right[string](12),
-		data.Right[string](2),
-		data.Left[string, int]("asd"),
-		data.Right[string](8),
+	myList := []either.Either[string, int]{
+		either.Right[string](12),
+		either.Right[string](2),
+		either.Left[string, int]("asd"),
+		either.Right[string](8),
 	}
 
 	go func() {

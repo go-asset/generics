@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/go-asset/generics/pkg/data"
+	"github.com/go-asset/generics/pkg/data/list"
 )
 
 type Filter interface {
@@ -40,7 +40,7 @@ type OrFilter struct {
 }
 
 func (f OrFilter) String() string {
-	values := data.Foldl([]string{}, f.values, func(c []string, value Filter) []string {
+	values := list.Foldl([]string{}, f.values, func(c []string, value Filter) []string {
 		return append(c, value.String())
 	})
 
@@ -56,7 +56,7 @@ type AndFilter struct {
 }
 
 func (f AndFilter) String() string {
-	values := data.Foldl([]string{}, f.values, func(c []string, value Filter) []string {
+	values := list.Foldl([]string{}, f.values, func(c []string, value Filter) []string {
 		return append(c, value.String())
 	})
 

@@ -4,17 +4,17 @@ import (
 	"fmt"
 
 	"github.com/go-asset/generics/internal/filter"
-	"github.com/go-asset/generics/pkg/data"
+	"github.com/go-asset/generics/pkg/data/list"
 )
 
 func main() {
 	myList := []int{1, 2, 3, 4, 5}
 
-	resultInt := data.Foldl(int64(myList[0]), myList[0:], func(c int64, value int) int64 {
+	resultInt := list.Foldl(int64(myList[0]), myList[0:], func(c int64, value int) int64 {
 		return c * int64(value)
 	})
 
-	resultStr := data.Foldr("", []rune("fancy"), func(c string, value rune) string {
+	resultStr := list.Foldr("", []rune("fancy"), func(c string, value rune) string {
 		return c + string(value)
 	})
 
@@ -25,7 +25,7 @@ func main() {
 		{Name: "Dylan", Age: 12},
 	}
 
-	resultFamily := data.Foldl(Family{}, people, func(c Family, value Person) Family {
+	resultFamily := list.Foldl(Family{}, people, func(c Family, value Person) Family {
 		if value.Age < 18 {
 			c.Children = append(c.Children, value)
 		} else {

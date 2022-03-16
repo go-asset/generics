@@ -5,10 +5,11 @@ import (
 
 	"golang.org/x/exp/constraints"
 
-	"github.com/go-asset/generics/pkg/data"
+	"github.com/go-asset/generics/pkg/data/list"
+	"github.com/go-asset/generics/pkg/data/maybe"
 )
 
-func add[T constraints.Ordered](c data.Maybe[T], value data.Maybe[T]) data.Maybe[T] {
+func add[T constraints.Ordered](c maybe.Maybe[T], value maybe.Maybe[T]) maybe.Maybe[T] {
 	if c.IsNothing() {
 		return value
 	}
@@ -17,18 +18,18 @@ func add[T constraints.Ordered](c data.Maybe[T], value data.Maybe[T]) data.Maybe
 		return c
 	}
 
-	return data.Just(c.Value() + value.Value())
+	return maybe.Just(c.Value() + value.Value())
 }
 
 func main() {
-	result := data.FoldlIter(
-		data.Just(0),
+	result := list.FoldlIter(
+		maybe.Just(0),
 		readFromUser(),
 		add[int],
 	)
 
-	resultStr := data.FoldlIter(
-		data.Just(""),
+	resultStr := list.FoldlIter(
+		maybe.Just(""),
 		readFromUserStr(),
 		add[string],
 	)

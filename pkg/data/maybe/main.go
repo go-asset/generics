@@ -1,4 +1,4 @@
-package data
+package maybe
 
 type Maybe[T any] struct {
 	value     T

@@ -1,15 +1,15 @@
 package main
 
-import "github.com/go-asset/generics/pkg/data"
+import "github.com/go-asset/generics/pkg/data/maybe"
 
-func readFromUser() chan data.Maybe[int] {
-	ch := make(chan data.Maybe[int])
+func readFromUser() chan maybe.Maybe[int] {
+	ch := make(chan maybe.Maybe[int])
 
-	myList := []data.Maybe[int]{
-		data.Just(12),
-		data.Just(2),
-		data.Nothing[int](),
-		data.Just(8),
+	myList := []maybe.Maybe[int]{
+		maybe.Just(12),
+		maybe.Just(2),
+		maybe.Nothing[int](),
+		maybe.Just(8),
 	}
 
 	go func() {
@@ -23,14 +23,14 @@ func readFromUser() chan data.Maybe[int] {
 	return ch
 }
 
-func readFromUserStr() chan data.Maybe[string] {
-	ch := make(chan data.Maybe[string])
+func readFromUserStr() chan maybe.Maybe[string] {
+	ch := make(chan maybe.Maybe[string])
 
-	myList := []data.Maybe[string]{
-		data.Just("asd"),
-		data.Just("123"),
-		data.Nothing[string](),
-		data.Just(",./"),
+	myList := []maybe.Maybe[string]{
+		maybe.Just("asd"),
+		maybe.Just("123"),
+		maybe.Nothing[string](),
+		maybe.Just(",./"),
 	}
 
 	go func() {

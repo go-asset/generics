@@ -1,4 +1,4 @@
-package data
+package either
 
 type Either[L any, R any] struct {
 	left  L
