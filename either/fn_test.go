@@ -3,7 +3,7 @@ package either_test
 import (
 	"testing"
 
-	"github.com/go-asset/generics/pkg/data/either"
+	"github.com/go-asset/generics/either"
 	"github.com/stretchr/testify/assert"
 )
 
